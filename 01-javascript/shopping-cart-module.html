@@ -1,0 +1,90 @@
+<script>
+    var shoppingCart = (function () {
+        var cart = [];
+
+        function addItem(id, name, price, qty) {
+            var newItem = {
+                id: id,
+                name: name,
+                price: price,
+                qty: qty
+            }
+
+            var itemExists = false;
+
+            var newCart = cart.map(function (item) {
+                if (item.id === newItem.id) {
+                    item.qty++;
+                    itemExists = true;
+                }
+
+                return item;
+            });
+
+            if (!itemExists) {
+                newCart.push(newItem);
+            }
+
+            cart = newCart;
+        }
+
+        function removeItem(id) {
+            var newCart = cart.map(function (item) {
+                if (item.id === id) {
+                    item.qty--;
+                }
+                return item;
+            });
+
+            newCart = newCart.filter(function (item) {
+                return item.qty > 0;
+            })
+
+            cart = newCart;
+        }
+
+        function displayCart() {
+            return cart.map(function (item) {
+                item.total = item.qty * item.price;
+                return item;
+            });
+        }
+
+        function getCartCount() {
+            var count = cart.reduce(function (acc, item) {
+                return acc + item.qty;
+            }, 0);
+            return count;
+        }
+        
+        function getCartTotal() {
+            var total = cart.reduce(function (acc, item) {
+                return acc + item.qty * item.price;
+            }, 0);
+            return total;
+        }
+
+        return {
+            addItem: addItem,
+            removeItem: removeItem,
+            displayCart: displayCart,
+            getCartCount: getCartCount,
+            getCartTotal: getCartTotal
+        };
+
+    })();
+    
+    shoppingCart.addItem(1, 'Pencil', 1.99, 1);
+    shoppingCart.addItem(1, 'Pencil', 1.99, 1);
+    shoppingCart.addItem(2, 'Apple', 0.99, 1);
+    shoppingCart.addItem(3, 'Banana', 1.10, 1);
+    shoppingCart.addItem(4, 'Shoe', 11.99, 1);
+    shoppingCart.addItem(4, 'Shoe', 11.99, 1);
+    shoppingCart.removeItem(1);
+    shoppingCart.removeItem(1);
+    
+    console.log(shoppingCart.getCartCount());
+    console.log(shoppingCart.getCartTotal());
+    console.log(shoppingCart.displayCart());
+    
+</script>

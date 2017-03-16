@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>ES6 Single Page Starter</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    
+    <style>
+        body {
+            font-family: Helvetica;
+            font-size: 18px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- App -->
+    </div>
+
+    <!-- JavaScript ES6 -->
+    <script type="text/babel">
+        // Write some JavaScript in ES6 here!
+        
+const array = [11, 22];
+const [a, b] = array; // a = 11, b = 22
+console.log(a, b);
+
+const array2 = [...array, 44, ...array]; // Creates a copy!
+console.log(array);
+array2.push(33);
+console.log(array2);
+
+const obj = {first:"Joe", last:"Smith"};
+const {first, last} = obj;
+console.log("First:"+first+" Last:"+last);
+
+const obj2 = {first:"Joe", last:"Smith"};
+const obj3 = {age:22, first:"John", ...obj};
+
+console.log(obj3);
+
+    </script>
+</body>
+
+</html>

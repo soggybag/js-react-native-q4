@@ -1,0 +1,7 @@
+{
+    "name": "Rookie Badge Issuer",
+    "description": "Issues great new Open Badges to self.",
+    "image": "http://webdevils.com/badges/rookie-badge-issuer.png",
+    "criteria": "http://webdevils.com/badges/rookie-badge-criteria.html",
+    "issuer": "http://webdevils.com/badges/badge-issuer.json"
+}

@@ -1,0 +1,38 @@
+
+<script>
+    var myCounter = (function () {
+        var counter = 0;
+
+        function increment() {
+            counter++;
+        }
+
+        function decrement() {
+            counter--;
+        }
+
+        function getCounter() {
+            return counter;
+        }
+
+        return {
+            increment: increment,
+            decrement: decrement,
+            getCounter: getCounter
+        }
+    })();
+
+    myCounter.increment();
+    myCounter.increment();
+    myCounter.increment();
+    myCounter.increment();
+    console.log(myCounter.getCounter());
+
+    myCounter.decrement();
+    myCounter.decrement();
+    console.log(myCounter.getCounter());
+
+    // console.log(counter); // error
+    // console.log(myCounter.counter); // undefined
+    
+</script>
