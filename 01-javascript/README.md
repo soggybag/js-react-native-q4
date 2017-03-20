@@ -1,6 +1,6 @@
 # JavaScript - Tutorial
 
-This is a short introduction to JavaScript. 
+A short introduction to JavaScript. 
 
 To cover a range of features of the JavaScript Language you will create a simple 
 shopping cart module. The shopping cart will have the following features: 
@@ -12,7 +12,7 @@ shopping cart module. The shopping cart will have the following features:
     - Remove Item from cart
     - Clear cart
     - Get count of items in cart
-    - Get total cost for cart
+    - Get total cost for all items in cart
     - List items in cart. This should list items with:
         - Name, price, and quantity
         - Total cost for item of quantity
@@ -25,6 +25,8 @@ the operations listed above.
 
 To follow this example you can create a text file with the .html file extension. 
 Wrap all of your JavaScript in the <script> and </script> tags. 
+
+`shopping-cart.html`
 
 Test your work by opening the file in any web browser and looking at the results in 
 the console. 
@@ -62,6 +64,21 @@ An item might look like this:
 }
 ```
 
+Turn this into a class like this: 
+
+```
+function Item(id, name, price) {
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.qty = 1;
+}
+```
+
+You can make also new instances of this class like this: 
+
+`var item = new Item(1, "Apple", 0.99); // Returns an object as shown in the above`
+
 # functions 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
@@ -87,19 +104,27 @@ Add an item to the end of the array with push().
 
 # Managing items in an array
 
-The function above makes it possible to add the same item to the cart more than once. 
+Use one of the methods above to create objects and add them to an array with array.push().  
 
-`[{id:1, ..., qty: 1}, {id:1, ..., qty: 1}, ...]`
+```
+var cart = [];
+cart.push( addItem(1, "Apple", 0.99, 1) );
+```
 
-This would be better as: 
+or 
 
-`[{id:1, ..., qty: 2}, ...]`
+```
+var cart = [];
+cart.push( new Item(1, "Apple", 0.99) );
+```
+
+### Increasing the quantity
 
 You need to check the items in the cart array for the id of the new item. If this id 
 exists you need to increment the qty. If the item doesn't exist add the new item with
 a qty of 1. 
 
-There are several solutions to this. I chose map(). 
+There are several solutions to this. I chose array.map(). 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
