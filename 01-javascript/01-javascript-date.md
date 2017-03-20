@@ -29,14 +29,22 @@ time.
 The Date object has methods to return all components of
 a date and time. This would be:
 
-- Year - `date.getYear(); // 117`
-- Month - `date.getMonth(); // 2`
-- Day - `date.getDay(); // 0`
-- Date - `date.getDate(); // 19`
-- Hours - `date.getHours(); // 16`
-- Minutes - `date.getMinutes(); // 59`
-- Seconds - `date.getSeconds(); // 48`
-- Milliseconds - `date.getMilliseconds(); // 243`
+- Year 
+    - `date.getYear(); // 117`
+- Month 
+    - `date.getMonth(); // 2`
+- Day 
+    - `date.getDay(); // 0`
+- Date 
+    - `date.getDate(); // 19`
+- Hours 
+    - `date.getHours(); // 16`
+- Minutes 
+    - `date.getMinutes(); // 59`
+- Seconds 
+    - `date.getSeconds(); // 48`
+- Milliseconds 
+    - `date.getMilliseconds(); // 243`
 
 These dates for: 
 
@@ -46,8 +54,11 @@ These dates for:
 
 - Calculate todays date and display it in the console.
 - Format todays date as **mm/dd/yyyy** and display it in the console. 
+- Format the time as 00:00:00
 - Write a function that takes a date and displays a formatted date as a string.
-- Write a function that takes timestamp and returns a date timestamp: 134570929 and returns a formatted date string.
+- Write a function that takes a date and returns the formatted time as a string.
+- Write a function that takes a UTC timestamp like: 134570929 
+and returns a formatted date string.
 - Find your age by getting the difference in your birthdate and the current date.
  
 
