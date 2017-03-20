@@ -18,8 +18,8 @@ Components.
 > or vehicle.
 
 Apps are broken down into components. Components can get very granular representing 
-even very small parts of your interfaces. Components by definition are smaller parts 
-that are assembled to make larger system.
+even very small parts of your interfaces. Components by definition are small parts 
+that are assembled to make larger system. Components will often be made of more components!
 
 - Component Based Architecture
     - https://medium.com/@dan.shapiro1210/understanding-component-based-architecture-3ff48ec0c238#.qk6lwll4n
@@ -29,26 +29,27 @@ Components are configured with **props** (short for properties) and **state**.
 > Properties : an essential or distinctive attribute or quality of a thing
 
 Properties configure a component supplying information that can make any instance of 
-a component unqiue. 
+a component unqiue.
 
 > State : the particular condition that someone or something is in at a specific time.
 
 State holds the condition of a component in time. As state changes a component changes. 
+Changing the state of a component will cause a component to redraw itself.
 
 **React Native** is described as:
 
 > A framework for building native apps using React
 
-React is a JavaScript framework for creating Native apps. It is built on React. That is 
-it uses React as an underlying framework. Even though React Native is written in 
-JavaScript it still produces native apps.
+React is a JavaScript framework for creating Native apps. It is built on React, it uses 
+React as an underlying framework. Even though React Native is written in  JavaScript it 
+still produces native apps.
 
 ## Why Use React Native? 
 
 The biggest advantage to React Native is the ability to use a single code base to write 
 apps for Android and iOS. With smaller apps you should be able to achieve this. With 
 larger apps you should still be able to write a majority of your once for both 
-Android and iOS, theough there is likely to be situations where you will need to write 
+Android and iOS, though there is likely to be situations where you will need to write 
 some amount of code for specific to each platform. 
 
 ## Does it work on Mac? 
@@ -77,13 +78,13 @@ Magic.
 ## Syllabus 
 
 - Intro
-    - What is this class about? 
-    - How will class operate?
-    - Earn some badges?
-- JavaScript (* Badge JS)
+    - What is this class about?
+    - JavaScript Intro challenege!
+- JavaScript
     - JavaScript language basics
     - JavaScript API built in objects and methods
-- ES6 (* Badge ES6)
+- ES6
+    - JavaScript's new Syntax
 - Things you'll need to do
     - Arrays
     - Objects 
@@ -145,6 +146,7 @@ Total       1000000
 
 | Points         | Levels   |            |               |
 |----------------|----------|------------|---------------|
+|Show up       1k|Not done 0|Tutorial  5k|Challenges  10k|
 |JS           10k|Not done 0|Tutorial  5k|Challenges  10k|
 |ES6          10k|Not done 0|Tutorial  5k|Challenges  10k|
 |React        20k|Not done 0|Tutorial 10k|Challenges  20k|

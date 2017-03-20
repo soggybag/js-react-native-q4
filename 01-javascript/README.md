@@ -266,13 +266,47 @@ console.log(myCounter.getCounter());
 ## Challenge
 
 - Add a function that displays the cart as a string. Something like: 
-
 > Apple $0.99 x 4 = $3.96
 > Banana $1.11 x 3 = $3.33
 > Total 7 items $7.29
+- Use the Math Object to solve the following challenges
+- Map, Filter, Reduce
+    - Use map, filter, and reduce to solve your shopping cart challenge
+        - Add to cart should use map to create a new cart. 
+        - Use Reduce to count total number of objects in cart. 
+        - Use Reduce to get the total cost of items in the cart. 
+    - Data Challenges - Use Map, Filter, and Reduce to solve more challenges. 
+        - Filter
+            - All users above age 30
+            - All male users between 18 and 30
+            - All female users who joined after 2016 (all dates 2017)
+            - Imagine the date is a birthday. Find all the users who's birthday is today. 
+        - Map
+            - Display user Name first and last
+            - Display first name and date formatted: mm/dd/yy
+            - Display male users as: First, Last, gender, age
+            - Display users whos birthday is today as: Happy Birthday firstName lastName
+        - Reduce
+            - Average the age of all users
+        - Extra Challenges 
+            - Sort all users by gender
+            - Sort all users by age
+- Date 
+    - Use the Date Object to solve the following challenges
+    
 
 
 
+## Schedule 
+
+| What                | Time |        | Activity   |
+|---------------------|------|--------|------------|
+|Intro                |10 min|  10 min| Talk       |
+|Objects reference    |10 min|  20 min| I do we do |
+|Challenge Problems   |60 min|  80 min| Challenges |
+|Break                |10 min|  90 min| Yoga       |
+|JS Map Filter Reduce |20 min| 110 min| Talk       |
+|Study problems       |10 min| 120 min| Talk       |
 
 
 

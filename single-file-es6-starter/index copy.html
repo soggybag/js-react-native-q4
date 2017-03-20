@@ -45,6 +45,27 @@ const obj3 = {age:22, first:"John", ...obj};
 
 console.log(obj3);
 
+const styles = {
+        color: 'black',
+        backgroundColor: 'white',
+        fontSize: 16,
+        fontFamily: 'Helvetica'
+    };
+
+    const title = {
+        fontSize: 36,
+        color: '#777',
+        fontWeight: 'bold'
+    };
+
+    const subTitle = {
+        color: '#444',
+        fontSize: 18,
+    };
+    
+    console.log({...styles, ...title});
+    console.log({...styles, ...subTitle});
+
     </script>
 </body>
 

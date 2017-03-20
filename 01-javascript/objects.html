@@ -1,0 +1,25 @@
+<script>
+    function Item(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    
+    Item.prototype.description = function() {
+        console.log(this.name + " " + this.price);
+    }
+    
+    var banana = new Item("Banana", 0.99);
+    banana.description();
+    
+    var apple = new Item("Apple", 0.99);
+    apple.description = function() {
+        console.log(this.name + " on sale! " + this.price * 0.9);
+    }
+    
+    apple.description();
+    
+    
+    
+    
+    
+</script>

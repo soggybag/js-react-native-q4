@@ -78,6 +78,10 @@ const array3 = [...array, 33];  // Concatenate values
 const array4 = [...array, ...array]; // Why not?
 ```
 
+## Challenges 
+
+Imagine you have two 
+
 ## ES6 Objects 
 
 ES6 provides destructuring for Objects. 

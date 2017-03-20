@@ -1,0 +1,79 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+    // Imagine you have some styles 
+
+    const styles = {
+        color: 'black',
+        backgroundColor: 'white',
+        fontSize: 16,
+        fontFamily: 'Helvetica'
+    };
+
+    const title = {
+        fontSize: 36,
+        color: '#777',
+        fontWeight: 'bold'
+    };
+
+    const subtitle = {
+        color: '#444',
+        fontSize: 18,
+    };
+
+    /* 
+        Imagine you need to "inherit" values from your base object: styles
+        and add these properties to title and subtitle. You've kept the 
+        properties separate easy of writing the code. At run time you need
+        to combine these objects together to get the style rules that will 
+        be applied via JS. 
+
+        For example the end result of title should look like: 
+
+        {
+            color: 'black',
+            backgroundColor: 'white',
+            fontSize: 36,
+            color: '#777',
+            fontWeight: 'bold',
+            fontFamily: 'Helvetica'
+        }
+
+        Notice that styles and title both contain fontSize, in this case properties in 
+        styles should always be over written by another style. 
+    */
+
+
+
+
+
+    // ------------------------------------------------------------------------------
+
+    var styles2 = {
+        base: {
+
+            color: 'black',
+            backgroundColor: 'white',
+            fontSize: 16,
+            fontFamily: 'Helvetica'
+        },
+        title: {
+            fontSize: 36,
+            color: '#777',
+            fontWeight: 'bold'
+        },
+        subtitle: {
+            color: '#444',
+            fontSize: 18,
+        }
+    }
+    
+    /*
+        This time your job is to combine base properties with each of the other 
+        properties of object above. Properties in base should always be overwritten 
+        by propertie from title and subtitle. 
+        
+        Write a function to do this. 
+    */
+
+    
+</script>

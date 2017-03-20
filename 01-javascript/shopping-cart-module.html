@@ -44,6 +44,13 @@
         }
 
         function displayCart() {
+            return cart.reduce(function (acc, item) {
+                acc += item.name + " " + item.price + " x " + item.qty + " = " + item.qty * item.price + "\n";
+                return acc;
+            }, "");
+        }
+        
+        function getCart() {
             return cart.map(function (item) {
                 item.total = item.qty * item.price;
                 return item;
