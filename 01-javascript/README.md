@@ -1,9 +1,9 @@
 # JavaScript - Tutorial
 
-A short introduction to JavaScript. 
+A short introduction to JavaScript.
 
 To cover a range of features of the JavaScript Language you will create a simple 
-shopping cart module. The shopping cart will have the following features: 
+shopping cart module. The shopping cart will have the following features:
 
 - Keeps a list of items stored in the cart
     - Each item in cart knows the name, price, and quantity
@@ -17,9 +17,9 @@ shopping cart module. The shopping cart will have the following features:
         - Name, price, and quantity
         - Total cost for item of quantity
         
-The completed project need only display the results in the console. The system should 
-consist of a single JavaScript module that holds a collection, and methods that perform
-the operations listed above. 
+The completed project need only display the results in the console. The system 
+should consist of a single JavaScript module that holds a collection, and 
+methods that perform the operations listed above. 
         
 # Creating the example
 
@@ -39,7 +39,7 @@ Define a variable to hold your shopping cart.
 
 `var cart = [];` 
 
-This defines a variable with an empty array. 
+This defines a variable with an empty array.
 
 # Objects 
 
@@ -93,6 +93,9 @@ function addItem(id, name, price, qty) {
         price: price,
         qty: qty
     }
+    
+    // or use this if you created the class function :
+    // var item = new Item(id, name, price, 1); 
 
     cart.push(item);
 }
@@ -104,7 +107,8 @@ Add an item to the end of the array with push().
 
 # Managing items in an array
 
-Use one of the methods above to create objects and add them to an array with array.push().  
+Use one of the methods above to create objects and add them to an array with 
+array.push().  
 
 ```
 var cart = [];
@@ -120,11 +124,11 @@ cart.push( new Item(1, "Apple", 0.99) );
 
 ### Increasing the quantity
 
-You need to check the items in the cart array for the id of the new item. If this id 
-exists you need to increment the qty. If the item doesn't exist add the new item with
-a qty of 1. 
+You need to check the items in the cart array for the id of the new item. If this 
+id exists you need to increment the qty. If the item doesn't exist add the new 
+item with a qty of 1. 
 
-There are several solutions to this. I chose array.map(). 
+There are several solutions to this. I chose Array.map().
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
@@ -156,10 +160,11 @@ function addItem(id, name, price, qty) {
 }
 ```
 
-Notice the function defined inside map(). This is an anonymous function, or closure. 
-These are really common in JavaScript. Take a close look you will see this often. 
+Notice the function defined inside map(). This is an **anonymous function**, or 
+**closure**. These are really common in JavaScript. Take a close look you will 
+see this often. 
 
-# Removing an item from the cart 
+# Removing an item from the cart
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
@@ -182,9 +187,9 @@ function removeItem(id) {
 
 # Reducing cart data
 
-To display the cart we need to calculate the total cost for an item, which is the qty 
-times the price. For safety we don't want to pass the cart array to another service
-that might inadvertently modify the cart. 
+To display the cart we need to calculate the total cost for an item, which is the 
+qty times the price. For safety we don't want to pass the cart array to another 
+service that might inadvertently modify the cart. 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
 
@@ -208,12 +213,17 @@ function getCartCount() {
 }
 ```
 
-Note! in this case reduce() is iterating through objects! This means the initial value 
-must be set! Otherwise the initial value is the first item in the array, which is an 
-object rather than an Number! The intial value is the second param to reduce().
+Note! in this case reduce() is iterating through objects! This means the initial 
+value must be set! Otherwise the initial value is the first item in the array, 
+which is an object rather than an Number! The intial value is the second param 
+to reduce().
 
-**Reduce the total value of the cart.** This requires you multiply the qty and price of 
-each item and accumulate the total. 
+Notice the 0 at the end of the line below: 
+
+`cart.reduce(function(acc, item) {return acc + item.qty;}, 0);`
+
+**Reduce the total value of the cart.** This requires you multiply the qty and 
+price of each item and accumulate the total. 
 
 ```
 function getCartTotal() {
@@ -228,14 +238,16 @@ function getCartTotal() {
 
 - https://developer.mozilla.org/en-US/docs/Glossary/Scope
 
-In JavaScript all variables are global unless they are scoped to a function block. This 
-is a big problem with a solution: Modules. Modules define scope for blocks of code. 
+In JavaScript all variables are global unless they are scoped to a function block. 
+This is a big problem with a solution: Modules. Modules define scope for blocks 
+of code.
 
-There are many methods for working with Modules, and whole libraries dedicated to it. 
+There are many methods for working with Modules, and whole libraries dedicated to 
+it. 
 
 This section will cover the mechanics of modules. How and why they work.
 
-# function scope
+## function scope
 
 Variables defined in a function are scoped to that function that is they **only available
 within that function.**
