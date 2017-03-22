@@ -79,19 +79,18 @@ Magic.
 
 - Intro
     - What is this class about?
-    - JavaScript Intro challenege!
+    - JavaScript Intro challenge
 - JavaScript
-    - JavaScript language basics
-    - JavaScript API built in objects and methods
+    - JavaScript language and basic skills
+        - Arrays, Objects, Shopping Cart
+    - Map, Filter, Reduce Challenges
+    - Date Object Challenges
+    - Math Object Challenges
 - ES6
     - JavaScript's new Syntax
-- Things you'll need to do
-    - Arrays
-    - Objects 
-    - Map, Filter, Reduce
-    - Date
-    - Math
-- React Intro (* React)
+        - Apply ES6 to the shopping cart
+- React Intro
+    - npm what are all of these files?
     - Components
         - Simple
         - Stateful
@@ -99,10 +98,11 @@ Magic.
         - Titles, Headings, and text blocks
         - Navbars
         - Counters, timers, and clocks. 
-- React Native (* React Native)
-    - init
-        - Make a React Native project
-    - run
+- React Native
+    - Install and Setup
+    - The command line tools
+        - Initializing a React Native project
+        - Running on iOS
     - Components
         - View
         - Text
@@ -112,7 +112,7 @@ Magic.
     - API
         - Fetch
         - 
-- Redux (* Redux)
+- Redux
     - What, why, and when to use Redux?
     - Implement Redux
         - Actions and Action creators
@@ -120,10 +120,36 @@ Magic.
         - Containers
 - Asynch and Thunks 
     - Using Asynch actions with Redux
-    
+
+## Schedule
+
+- Week 1
+    - Mon. Intro challenge assessment
+    - Wed. JavaScript map, filter, reduce *
+    - Fri. JavaScript Math, Date *
+- Week 2 
+    - Mon. ES6 *
+    - Wed. React Intro Components * 
+    - Fri. React Native Intro 
+- Week 3
+    - Mon. Flex Box, View, Text, Stylesheet *
+    - Wed. ScrollView, Button
+    - Fri. Fetch
+- Week 4
+    - Mon. 
+    - Wed.
+    - Fri.
+- Week 5
+    - Mon.
+    - Wed.
+    - Fri.
 
 ## Resources 
 
+- 
+
+
+---
 
 ## Points
 

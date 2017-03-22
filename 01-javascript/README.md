@@ -21,7 +21,7 @@ The completed project need only display the results in the console. The system
 should consist of a single JavaScript module that holds a collection, and 
 methods that perform the operations listed above. 
         
-# Creating the example
+## Creating the example
 
 To follow this example you can create a text file with the .html file extension. 
 Wrap all of your JavaScript in the <script> and </script> tags. 
@@ -31,7 +31,7 @@ Wrap all of your JavaScript in the <script> and </script> tags.
 Test your work by opening the file in any web browser and looking at the results in 
 the console. 
 
-# Variables
+## Variables
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 
@@ -41,7 +41,7 @@ Define a variable to hold your shopping cart.
 
 This defines a variable with an empty array.
 
-# Objects 
+## Objects 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
 
@@ -79,7 +79,7 @@ You can make also new instances of this class like this:
 
 `var item = new Item(1, "Apple", 0.99); // Returns an object as shown in the above`
 
-# functions 
+## functions 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
 
@@ -105,7 +105,7 @@ Add an item to the end of the array with push().
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
 
-# Managing items in an array
+## Managing items in an array
 
 Use one of the methods above to create objects and add them to an array with 
 array.push().  
@@ -124,11 +124,15 @@ cart.push( new Item(1, "Apple", 0.99) );
 
 ### Increasing the quantity
 
-You need to check the items in the cart array for the id of the new item. If this 
-id exists you need to increment the qty. If the item doesn't exist add the new 
-item with a qty of 1. 
+You need to check the items in the cart array for the `id` of the new item. 
+If this `id` exists you need to increment the `qty`. If the item doesn't exist 
+add the new item with a `qty` of 1. 
 
-There are several solutions to this. I chose Array.map().
+There are several solutions to this. I chose `Array.map()`. Map returns a new 
+array rather than mutating the existing array. This is an important distinction. 
+When we are heading into React, which uses functional programming paradigm. 
+Reduces side effects in app, enables one way directional data flow which makes state 
+easier to manage. 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
 
@@ -164,12 +168,32 @@ Notice the function defined inside map(). This is an **anonymous function**, or
 **closure**. These are really common in JavaScript. Take a close look you will 
 see this often. 
 
-# Removing an item from the cart
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+
+# Array filter, map, reduce
+
+The map, filter, and reduce methods are an introduction to functional programming ideas.
+These methods are important to React and Redux.
+
+**Array.map** creates a new array by transforming each element of a source array. 
+
+**Array.filter** creates a new array by filtering the elements of a source array. 
+
+**Array.reduce** returns a value accumulated by looking at all of the elements in a 
+source array.
+
+We can use these method with the shopping cart to remove items, calculate the total 
+cost of the cart and more. 
+
+## Removing an item from the cart
+
+Use Array.map and Array.filter to remove items from the cart. 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
 ```
 function removeItem(id) {
+    // Transoform 
     var newCart = cart.map(function(item) {
         if (item.id === id) {
             item.qty --;
@@ -185,24 +209,16 @@ function removeItem(id) {
 }
 ```
 
-# Reducing cart data
+## Reducing cart data
 
-To display the cart we need to calculate the total cost for an item, which is the 
-qty times the price. For safety we don't want to pass the cart array to another 
-service that might inadvertently modify the cart. 
+Use Reduce to generate a single value from an array. In this case of the shopping cart 
+we use reduce to count the number of items in the cart, get the total cost of the cart, 
+and generate a string description of the cart. 
 
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
 
-```
-function displayCart() {
-    return cart.map(function(item) {
-        item.total = item.qty * item.price;
-        return item;
-    });
-}
-```
-
-You can use array.reduce() to get the total count of items in the cart. 
+Get the total of the cost of the cart.  Since the array contains object we must set the 
+initial value, this is the param to reduce. 
 
 ```
 function getCartCount() {
@@ -210,6 +226,29 @@ function getCartCount() {
         return acc + item.qty;
     }, 0);
     return count;
+}
+```
+
+Get the total of the cart: 
+
+```
+function getCartTotal() {
+    var total = cart.reduce(function(acc, item) {
+        return acc + item.qty * item.price;
+    }, 0);
+    return total;
+}
+```
+
+Reduce the cart to a string to display it. In this case we need to have an inital value
+that is a string! 
+
+```
+function displayCart() {
+    var total = cart.reduce(function(acc, item) {
+        return acc + item.name + " $" + item.price + " x " + item.qty + " = " + item.price item.qty + "\n";
+    }, "");
+    return total;
 }
 ```
 
@@ -234,7 +273,7 @@ function getCartTotal() {
 }
 ```
 
-# Scope and Modules 
+## Scope and Modules 
 
 - https://developer.mozilla.org/en-US/docs/Glossary/Scope
 
@@ -247,7 +286,7 @@ it.
 
 This section will cover the mechanics of modules. How and why they work.
 
-## function scope
+### function scope
 
 Variables defined in a function are scoped to that function that is they **only available
 within that function.**
@@ -336,14 +375,14 @@ console.log(myCounter.getCounter());
 
 ## Schedule 
 
-| What                | Time |        | Activity   |
-|---------------------|------|--------|------------|
-|Intro                |10 min|  10 min| Talk       |
-|Objects reference    |10 min|  20 min| I do we do |
-|Challenge Problems   |60 min|  80 min| Challenges |
-|Break                |10 min|  90 min| Yoga       |
-|JS Map Filter Reduce |20 min| 110 min| Talk       |
-|Study problems       |10 min| 120 min| Talk       |
+| What                  | Time |        | Activity   |
+|-----------------------|------|--------|------------|
+|Intro                  |10 min|  10 min| Talk       |
+|Shopping Cart solution |20 min|  30 min| I do we do |
+|Challenge Problems     |60 min|  90 min| Challenges |
+|Break                  |10 min| 100 min| Yoga       |
+|JS Date Object         |10 min| 110 min| Talk       |
+|JS Math Object         |10 min| 120 min| Talk       |
 
 
 
