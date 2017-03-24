@@ -1,0 +1,119 @@
+<script>
+    // An ES version of the shopping cart.
+    var shoppingCart = (() => {
+        var cart = [];
+        
+        const addItem = (id, name, price, qty) => {
+            const newItem = {
+                id,
+                name,
+                price,
+                qty
+            }
+
+            var itemExists = false;
+
+            const newCart = cart.map((item) => {
+                if (item.id === newItem.id) {
+                    item.qty++;
+                    itemExists = true;
+                }
+
+                return item;
+            });
+
+            if (!itemExists) {
+                newCart.push(newItem);
+            }
+
+            cart = newCart;
+        }
+
+        const removeItem = (id) => {
+            var newCart = cart.map((item) => {
+                if (item.id === id) {
+                    item.qty--;
+                }
+                return item;
+            });
+
+            newCart = newCart.filter((item) => {
+                return item.qty > 0;
+            })
+
+            cart = newCart;
+        }
+
+        const displayCart = () => {
+            return cart.reduce((acc, item) => {
+                acc += item.name + " " + item.price + " x " + item.qty + " = " + item.qty * item.price + "\n";
+                return acc;
+            }, "");
+        }
+        
+        const getCart = () => {
+            return cart.map((item) => {
+                item.total = item.qty * item.price;
+                return item;
+            });
+        }
+
+        const getCartCount = () => {
+            var count = cart.reduce((acc, item) => {
+                return acc + item.qty;
+            }, 0);
+            return count;
+        }
+        
+        const getCartTotal = () => {
+            var total = cart.reduce((acc, item) => {
+                return acc + item.qty * item.price;
+            }, 0);
+            return total;
+        }
+
+        return {
+            addItem,
+            removeItem,
+            displayCart,
+            getCartCount,
+            getCartTotal
+        };
+
+    })();
+    
+    shoppingCart.addItem(1, 'Pencil', 1.99, 1);
+    shoppingCart.addItem(1, 'Pencil', 1.99, 1);
+    shoppingCart.addItem(2, 'Apple', 0.99, 1);
+    shoppingCart.addItem(3, 'Banana', 1.10, 1);
+    shoppingCart.addItem(4, 'Shoe', 11.99, 1);
+    shoppingCart.addItem(4, 'Shoe', 11.99, 1);
+    shoppingCart.addItem(33, 'table', 24.99, 1);
+    shoppingCart.removeItem(1);
+    shoppingCart.addItem(44, 'iPhone', 600.00, 1);
+    shoppingCart.addItem(44, 'iPhone', 600.00, 1);
+    shoppingCart.removeItem(44);
+    
+    console.log(shoppingCart.getCartCount());
+    console.log(shoppingCart.getCartTotal());
+    console.log(shoppingCart.displayCart());
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

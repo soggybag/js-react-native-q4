@@ -3,6 +3,102 @@
     // This imports an array of user objects. Take a look at them in the console. 
     console.log(users);
     
+//    var notNullUsers = users.filter(function(user){
+//        return user.age != null;
+//    });
+//    
+//    console.log(users.length);
+//    console.log(notNullUsers.length);
+    
+    console.log("Check Birthday -----");
+    var today = new Date();
+    console.log(users.filter(function(user){
+        var bDay = new Date(user.date * 1000);
+        return today.getMonth() === bDay.getMonth() && today.getDate() === bDay.getDate();
+    }));
+    console.log("-----");
+    
+    
+    
+    
+    function Widget(a, b, c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+    
+    
+    var q = "7";
+    var u = 7;
+    
+    console.log(q == u); // true
+    console.log(q === u); // false 
+    
+    
+    var r = null;
+    var t = "aaa" * 36;
+    
+    
+    // prototype = {start: function(){}, ... }
+    Widget.prototype.start = function() {
+        console.log(this.c.name + " started");
+    }
+    
+    Widget.prototype.Cog = Cog;
+    
+    function Cog() {
+        
+    }
+    
+    Cog.prototype.spin = function() {
+        
+    }
+    
+    
+    var w = new Widget(1,2,{name:"Joe", age: 33});
+    console.log(w);
+    w.start();
+    
+    var x = new Widget(11,22,{name:"X"});
+    x.special = 99;
+    console.log(x);
+    
+    
+    
+    
+    
+    
+    var date = new Date("1473818524" * 1000);
+    
+    console.log(typeof today);
+    
+    console.log(today);
+    console.log(date);
+    console.log(today.getFullYear());
+    console.log(date.getYear());
+    console.log(today.getDay());
+    console.log(today.getDate());
+    console.log(today.getMonth());
+    console.log(formatDay(today.getDay()));
+    console.log(formatMonth(today.getMonth()));
+    
+    function formatDay(day) {
+        return ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"][day];
+    }
+    
+    Date.prototype.formatDay = formatDay;
+    
+    function formatMonth(month) {
+        return ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"][month];
+    }
+    
+    function fomratDate(date) {
+        var day = formatDay(date.getDay());
+        var month = formatMonth(date.getMonth());
+        var d = date.getDate()
+        return month + " " + day + ' the ' + d;
+    }
+    
     /* 
         The each user object has properties of:
         
@@ -30,6 +126,7 @@
     
     // Reduce
     // Average the age of all users
+    // Imagine the date is the date joined. Calculate the number of total hours all since all users have joined.
     
     // Extra Challenges 
     // Sort all users by gender

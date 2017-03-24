@@ -2,22 +2,33 @@
 
 ES6 is the latest iteration of the JavaScript language. 
 
-ES6 provides a different syntax for many features, while functionality remains the same. 
-ES6 introduces only a few new ideas. 
+ES6 provides a different syntax for many features, while functionality remains 
+the same. ES6 introduces a few new ideas. 
 
 # const
 
 const - defines a constant
 
+Rather than an immutable value a const is value whose bindng can not change. 
+Using any of the assignment operators on a const will cause an error. In 
+other words: 
+
+```
+const x = 10;
+x = 99; // Throws an error!
+```
+
 # let 
 
-{} Scope and let...
+Let defines a block scope. Variables defined with let inside of {} are scoped to 
+that block. 
 
 # Fat arrow functions
 
-Fat arrow functions are JavaScript functions with an updated syntax introduced in ES5. 
+Fat arrow functions provide a new abbreviated syntax for functions. You will be 
+using Fat arrow functions with React! 
 
-We will be using Fat arrow functions with React! 
+The original style of functions: 
 
 ```
 function myFunction(param1, param2) {
@@ -49,14 +60,10 @@ var newArray = array.map((item) => {
 });
 ```
 
-There are several more optimized syntaxes for fat arrow functions, you can read more 
-about this here: 
+There are several more optimized syntaxes for fat arrow functions, you can read 
+more about this here: 
 
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-
-## Fat Arrow Challenges 
-
-- Rewrite the shopping example with fat arrow functions.  
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions 
 
 ## ES6 Arrays
 
@@ -77,10 +84,6 @@ const array2 = [...array];      // Creates a copy!
 const array3 = [...array, 33];  // Concatenate values
 const array4 = [...array, ...array]; // Why not?
 ```
-
-## Challenges 
-
-Imagine you have two 
 
 ## ES6 Objects 
 
@@ -107,7 +110,15 @@ const obj2 = {age:22, first:"John", ...obj}; // First name John is overwritten w
 
 - http://exploringjs.com/es6/ch_destructuring.html
 
+# Challenges
 
+- Rewrite the shopping example with fat arrow functions. 
+    - Use the Fat arrow syntax in place of the function(){} everywhere. 
+- Do the challenges in `colors.html`. For these challenges be sure to use: 
+    - Fat Arrow functions
+    - ...array deconstruction syntax
+- Solve the problems in `styles.html`
+    - When solving these challenges be sure to use the ...obj deconstruction syntax.
 
 
 

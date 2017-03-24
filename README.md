@@ -126,17 +126,18 @@ Magic.
 - Week 1
     - Mon. Intro challenge assessment
     - Wed. JavaScript map, filter, reduce *
-    - Fri. JavaScript Math, Date *
+        - JavaScript Math, Date *
+    - Fri. ES6 *
 - Week 2 
-    - Mon. ES6 *
-    - Wed. React Intro Components * 
-    - Fri. React Native Intro 
+    - Mon. React Intro Components *
+    - Wed. React Native Intro
+    - Fri. Flex Box, View, Text, Stylesheet *
 - Week 3
-    - Mon. Flex Box, View, Text, Stylesheet *
-    - Wed. ScrollView, Button
-    - Fri. Fetch
+    - Mon. Fetch *
+    - Wed. ScrollView, ListView
+    - Fri. Navigation
 - Week 4
-    - Mon. 
+    - Mon. Project
     - Wed.
     - Fri.
 - Week 5

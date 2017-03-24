@@ -40,6 +40,10 @@
 
         Notice that styles and title both contain fontSize, in this case properties in 
         styles should always be over written by another style. 
+        
+        Challenge: combine the objects above 
+        - styles + title
+        - styles + subtitle
     */
 
 
@@ -70,10 +74,38 @@
     /*
         This time your job is to combine base properties with each of the other 
         properties of object above. Properties in base should always be overwritten 
-        by propertie from title and subtitle. 
+        by properties from title and subtitle. 
         
-        Write a function to do this. 
+        For example base + title should look like this: 
+        
+        {
+            backgroundColor: 'white',
+            fontFamily: 'Helvetica',
+            fontSize: 36,
+            color: '#777',
+            fontWeight: 'bold'
+        }
+        
+        Challenge: 
+        Write a function to do this. Your function should take in two objects and 
+        return an object made up of both. If there is a conflict properties from the 
+        second object should overwrite the first!
     */
 
+    
+    /*
+        Use Object destructuring to make individual properties of an object 
+        passed as a param. Write a function that takes any of the style objects. 
+        It's params should be the named keys of the object. Use sensible 
+        default values in case properties are missing!
+        
+        In ES5 it might look like this: 
+        
+        function test(color, fontSize) {
+            // color = 'red' and fontSize = 16
+        }
+         
+        test(styles) // Where styles = {color: 'red', fontSize: 16}
+    */
     
 </script>

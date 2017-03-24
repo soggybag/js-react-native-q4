@@ -379,10 +379,11 @@ console.log(myCounter.getCounter());
 |-----------------------|------|--------|------------|
 |Intro                  |10 min|  10 min| Talk       |
 |Shopping Cart solution |20 min|  30 min| I do we do |
-|Challenge Problems     |60 min|  90 min| Challenges |
-|Break                  |10 min| 100 min| Yoga       |
-|JS Date Object         |10 min| 110 min| Talk       |
-|JS Math Object         |10 min| 120 min| Talk       |
+|Break                  |10 min|  40 min| Yoga       |
+|JS Date Object         |10 min|  50 min| Talk       |
+|JS Math Object         |10 min|  60 min| Talk       |
+|Challenge Problems     |60 min| 120 min| Challenges |
+
 
 
 

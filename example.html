@@ -1,0 +1,22 @@
+<script>
+
+    var array = [1,2,3,4,5];
+    
+    console.log(array);
+    
+    console.log( array.map(function(item){
+        return item * item;
+    }) );
+    
+    console.log( array.filter(function(item, index, arr) {
+        // ... 
+        return item > 3;
+    }) );
+    
+    // array.reduce(callback, init);
+    
+    console.log( array.reduce(function(acc, item) {
+        return acc + item;
+    }, 100) );
+
+</script>

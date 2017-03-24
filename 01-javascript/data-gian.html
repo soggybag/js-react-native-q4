@@ -1,0 +1,142 @@
+<script src="data.js"></script>
+<script>
+    // This imports an array of user objects. Take a look at them in the console.
+    // console.log(users);
+
+    /*
+        The each user object has properties of:
+
+        - age (Number)
+        - date (String UTC timestamp)
+        - first_name (String)
+        - last_name (String)
+        - gender (String: Male or Female)
+        - id (Number)
+    */
+
+    // Challenges
+
+    // - Filter
+    // All users above age 30
+    function aboveThirty(users) {
+        newArr = users.filter(function(user) {
+            return user.age > 30
+        })
+        console.log("- Users age 30");
+        console.log(newArr);
+    }
+
+    // All male users between 18 and 30
+    function inbetween(users) {
+        newArr = users.filter(function(user) {
+            return (user.age >= 18 && user.age <= 30) && user.gender === "Male"
+        })
+        console.log("- users between 18 and 30");
+        console.log(newArr)
+    }
+
+    // All female users who joined after 2016 (all dates 2017)
+    function femaleAfter(users) {
+        newArr = users.filter(function(user) {
+            var bday = new Date(user.date * 1000)
+
+            return bday.getFullYear() > 2016
+        })
+        console.log("- User joined after 2016");
+        console.log(newArr)
+    }
+
+    // Imagine the date is a birthday. Find all the users who's birthday is today.
+    function birthday(users) {
+        var today = new Date()
+
+        newArr = users.filter(function(user) {
+            var bday = new Date(user.date * 1000)
+
+            return bday.getDate() === today.getDate() && bday.getMonth() === today.getMonth()
+        })
+        console.log("- user birthday today "+today.toDateString());
+        console.log(newArr)
+    }
+
+
+    // - Map
+    // Display user Name first and last
+    function names(users) {
+        newArr = users.map(function(user) {
+            return user.first_name + " " + user.last_name
+        })
+        console.log("- first last");
+        console.log(newArr)
+    }
+
+    // Display first name and date formatted: mm/dd/yy
+    function nameDate(users) {
+        newArr = users.map(function(user) {
+            var bday = new Date(user.date * 1000)
+
+            return user.first_name + " " + bday
+        })
+        console.log("- first last mm/dd/yy");
+        console.log(newArr)
+    }
+
+    // Display male users as: First, Last, gender, age
+    function males(users) {
+        filteredArr = users.filter(function (user) {
+            return user.gender === "Male"
+        })
+
+        mappedArr = filteredArr.map(function(user) {
+            return user.first_name + " " + user.last_name + " " + user.gender + " " + user.age
+        })
+        console.log("- First, Last, gender, age");
+        console.log(mappedArr)
+    }
+
+    // Display users whos birthday is today as: Happy Birthday firstName lastName
+    function happyBirthday(users) {
+        var today = new Date()
+
+        filteredArr = users.filter(function(user) {
+            var bday = new Date(user.date * 1000)
+
+            return bday.getDate() === today.getDate() && bday.getMonth() === today.getMonth()
+        })
+
+        mappedArr = filteredArr.map(function(user) {
+            return "Happy Birthday " + user.first_name + " " + user.last_name
+        })
+        console.log("- Happy Birthday firstName lastName");
+        console.log(mappedArr)
+    }
+
+    // Reduce
+    // Average the age of all users
+    function avgAge(users) {
+        usersAge = users.reduce(function(acc, user) {
+            return acc + user.age
+        }, 0)
+
+        avg = usersAge / (users.length + 1);
+        
+        console.log("- Average the age of all users");
+        console.log(avg)
+    }
+
+    // Extra Challenges
+    // Sort all users by gender
+    // Sort all users by age
+
+    aboveThirty(users)
+    inbetween(users)
+    femaleAfter(users)
+    birthday(users)
+
+    names(users)
+    nameDate(users)
+    males(users)
+    happyBirthday(users)
+
+    avgAge(users)
+</script>
