@@ -73,6 +73,7 @@
     console.log(e);
 
     // Display first name and date formatted: mm/dd/yy
+    // Nice use of moment for formatting!
     var f = users.map(function(user) {
         return user.first_name + " " + moment.unix(user.date).format("MM/DD/YY");
     });
@@ -80,6 +81,7 @@
     console.log(f);
 
     // Display male users as: First, Last, gender, age
+    
     var maleUsers = users.filter(function(user){
         return user.gender = "Male";
     });
@@ -91,6 +93,7 @@
     console.log(g);
 
     // Display users whos birthday is today as: Happy Birthday firstName lastName
+    // *** This should add "Happy Birthday" only to users whose birthday is today!
     var h = d.map(function(user) {
         return "Happy Birthday " + user.first_name + " " + user.last_name;
     });
