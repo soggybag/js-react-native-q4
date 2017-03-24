@@ -139,4 +139,24 @@
     happyBirthday(users)
 
     avgAge(users)
+    
+    
+    
+    function averageAges(users) {
+        var nullUsers = 0;
+        usersAge = users.reduce(function(acc, user) {
+            if (user.age === null) {
+                nullUsers += 1;
+                return acc;
+            }
+            return acc + user.age;
+        }, 0)
+
+        avg = usersAge / (users.length - nullUsers);
+        
+        console.log("- Average age less null age there were "+ nullUsers+" users with null age");
+        console.log(avg);
+    }
+    
+    averageAges(users);
 </script>

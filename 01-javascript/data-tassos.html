@@ -1,0 +1,110 @@
+<script src="data.js"></script>
+<script>
+// This imports an array of user objects. Take a look at them in the console.
+// console.log(users);
+
+
+
+/*
+The each user object has properties of:
+
+- age (Number)
+- date (String UTC timestamp)
+- first_name (String)
+- last_name (String)
+- gender (String: Male or Female)
+- id (Number)
+*/
+
+// Challenges
+
+// - Filter
+
+// All users above age 30
+console.log("All users above age 30")
+console.log(users.filter(function(user, index, arr) {
+  return user.age > 30;
+}))
+
+// All male users between 18 and 30
+console.log("All male users between 18 and 30")
+console.log(users.filter(function(user, index, arr) {
+  if ((user.age >= 18) && (user.age <= 30)) {
+    return true;
+  } else {
+    return false;
+  }
+
+}))
+
+// All female users who joined after 2016 (all dates 2017)
+console.log("All female users who joined after 2016 (all dates 2017)");
+console.log(users.filter(function(user, index, arr) {
+  // var year = new Date().getFullYear()
+  var userJoin = new Date(user.date * 1000).getFullYear()
+  if ((userJoin > 2016) && (user.gender === "Female")) {
+    console.log(userJoin + " - ")
+  }
+  return ((userJoin > 2016) && (user.gender === "Female"));
+}))
+
+// Imagine the date is a birthday. Find all the users who's birthday is today.
+console.log("Imagine the date is a birthday. Find all the users who's birthday is today.")
+console.log(users.filter(function(user, index, arr) {
+  var bdayMonth = new Date(user.date * 1000).getMonth()
+  var bdayDate = new Date(user.date * 1000).getDate()
+
+  var todayDate = new Date().getDate()
+  var todayMonth = new Date().getMonth()
+  return (bdayDate === todayDate && bdayMonth === todayMonth);
+}))
+
+// - Map
+// Display user Name first and last
+console.log("Display user Name first and last")
+console.log(users.map(function(user, index, arr) {
+  return user.first_name + " " + user.last_name;
+}))
+
+// Display first name and date formatted: mm/dd/yy
+console.log("Display first name and date formatted: mm/dd/yy")
+console.log(users.map(function(user, index, arr) {
+  var bdayDate = new Date(user.date * 1000)
+  return user.first_name + ": " + bdayDate.getMonth() + "/" + bdayDate.getDate() + "/" + bdayDate.getFullYear();
+}))
+
+// Display male users as: First, Last, gender, age
+console.log("Display male users as: First, Last, gender, age")
+console.log(users.filter(function(user, index, arr) {
+  return user.gender === "Male"
+}).map(function(user, index, arr) {
+    return user.first_name + " " + user.last_name + ", " + user.gender + ", " + user.age
+}))
+
+// Display users whos birthday is today as: Happy Birthday firstName lastName
+console.log("Display users whos birthday is today as: Happy Birthday firstName lastName")
+console.log(users.filter(function(user, index, arr) {
+  var bdayMonth = new Date(user.date * 1000).getMonth()
+  var bdayDate = new Date(user.date * 1000).getDate()
+
+  var todayDate = new Date().getDate()
+  var todayMonth = new Date().getMonth()
+  return (bdayDate === todayDate && bdayMonth === todayMonth)
+}).map(function(user, index, arr) {
+    return "Happy Birthday " + user.first_name + " " + user.last_name + "!"
+}))
+
+// Reduce
+
+// Average the age of all users
+console.log("Average the age of all users")
+console.log(users.reduce(function(acc, value, index) {
+  acc += value.age;
+  return acc;
+}, 0)/ users.length)
+
+// Extra Challenges
+// Sort all users by gender
+// Sort all users by age
+
+</script>

@@ -1,0 +1,112 @@
+<script src="moment.js"></script>
+<script src="data.js"></script>
+<script>
+    // This imports an array of user objects. Take a look at them in the console.
+    //console.log(users);
+
+    //console.log(moment(1473818524 * 1000).format("MM/DD/YY"));
+
+    var today = new Date();
+    var date = new Date(1473818524 * 1000);
+
+    console.log(date);
+    console.log(today);
+    console.log(today.getFullYear());
+    console.log(today.getYear());
+    console.log(today.getDay());
+    console.log(today.getDate());
+    console.log(today.getMonth());
+
+    /*
+        The each user object has properties of:
+
+        - age (Number)
+        - date (String UTC timestamp)
+        - first_name (String)
+        - last_name (String)
+        - gender (String: Male or Female)
+        - id (Number)
+    */
+
+    // Challenges
+
+    // - Filter
+    // All users above age 30
+    var a = users.filter(function(user){
+        return user.age > 30;
+    });
+    console.log("Above 30");
+    console.log(a);
+
+    // All male users between 18 and 30
+    var b = users.filter(function(user){
+        return (user.age > 18 && user.age < 30) && user.gender === "Male";
+    });
+    console.log("between 18 and 30");
+    console.log(b);
+
+    // All female users who joined after 2016 (all dates 2017)
+    var c = users.filter(function(user){
+        var date = new Date(user.date * 1000);
+        return date.getFullYear() > 2016 && user.gender === "Female";
+    });
+    console.log("females after 2016");
+    console.log(c);
+
+    // Imagine the date is a birthday. Find all the users who's birthday is today.
+    
+    var d = users.filter(function(user){
+        var today = new Date(1490208227 * 1000); // *** Better to move this outside, rather than create a new date each loop!
+        var birthday = new Date(user.date * 1000);
+        // *** You're matching getDay() which is the day of the week (mon, tues, etc.) rather than getDate() which is the day of the month (1st, 2nd, 3rd, etc)
+        return birthday.getDay() === today.getDay() && birthday.getMonth() === today.getMonth();
+    });
+    console.log("birthday today");
+    console.log(d);
+
+    // - Map
+    // Display user Name first and last
+    var e = users.map(function(user) {
+        return user.first_name + " " + user.last_name;
+    });
+    console.log("first and last");
+    console.log(e);
+
+    // Display first name and date formatted: mm/dd/yy
+    var f = users.map(function(user) {
+        return user.first_name + " " + moment.unix(user.date).format("MM/DD/YY");
+    });
+    console.log("first name mm/dd/yy");
+    console.log(f);
+
+    // Display male users as: First, Last, gender, age
+    var maleUsers = users.filter(function(user){
+        return user.gender = "Male";
+    });
+
+    var g = maleUsers.map(function(user) {
+        return user.first_name + ", " + user.last_name + ", " + user.gender + ", " + user.age;
+    });
+    console.log("male users");
+    console.log(g);
+
+    // Display users whos birthday is today as: Happy Birthday firstName lastName
+    var h = d.map(function(user) {
+        return "Happy Birthday " + user.first_name + " " + user.last_name;
+    });
+    console.log("Happy birthday");
+    console.log(h);
+
+    // Reduce
+    // Average the age of all users
+    var i = users.reduce(function(acc, user){
+        return acc + user.age / users.length;
+    }, 0);
+    console.log("Average age");
+    console.log(i);
+
+    // Extra Challenges
+    // Sort all users by gender
+    // Sort all users by age
+
+</script>
