@@ -213,6 +213,8 @@ Install React Native by following the: Getting Started instructions here:
 - Install React Native
 - Init a React Native project
 - Follow the examples under "The Basics" after getting started
+    - https://facebook.github.io/react-native/docs/tutorial.html
+- Do the Flex box tutorial here: http://flexboxfroggy.com
 - Stretch Challenge!
     - Implement the tutorial here in react Native!
     - https://facebook.github.io/react/tutorial/tutorial.html
