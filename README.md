@@ -129,8 +129,8 @@ Magic.
         - JavaScript Math, Date *
     - Fri. ES6 *
 - Week 2 
-    - Mon. React Intro Components *
-    - Wed. React Native Intro
+    - Mon. React Native Intro *
+    - Wed. React Components 
     - Fri. Flex Box, View, Text, Stylesheet *
 - Week 3
     - Mon. Fetch *

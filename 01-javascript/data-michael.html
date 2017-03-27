@@ -1,0 +1,199 @@
+<script src="data.js"></script>
+<script>
+    // This imports an array of user objects. Take a look at them in the console.
+    console.log(users);
+    // Challenges
+
+    // - Filter
+    function filterUsersByGender(gender) {
+        var genderedUsers = users.filter(function(user) {
+            if (user.gender == gender) {
+                return user;
+            }
+            return false;
+        });
+        // *** Need some output? 
+    }
+    console.log("- filter ");
+    
+    
+    // All users above age 30
+    function filterUsersByAge(age, lessThanOrEqualTo) {
+        //age is the age to filter by
+        //lessThanOrEqualTo true for less than or equal to that age; false if greater than or equal to
+        var filteredUsers = [];
+
+        if (lessThanOrEqualTo === true) {
+            filteredUsers = users.filter(function(user) {
+                return user.age <= age;
+            });
+        }
+        else {
+            filteredUsers = users.filter(function(user) {
+                return user.age >= age;
+            });
+        }
+        return filteredUsers;
+    }
+    
+    // All male users between 18 and 30
+    function male18to30() {
+        var filteredUsers = users.filter(function(user) {
+            return user.gender == "Male" && user.age <= 30 && user.age >= 18;
+        });
+        return filteredUsers;
+    }
+    console.log("- male 18 to 30");
+    console.log(male18to30());
+    
+    
+    // All female users who joined after 2016 (all dates 2017)
+    function femaleAfter2016() {
+        var filteredUsers = users.filter(function(user) {
+            if (user.date != null) {
+                var userDate = new Date(user.date * 1000);
+                return user.gender == "Female" && userDate.getFullYear() > 2016;
+            }
+            return false;
+        });
+        return filteredUsers;
+    }
+    console.log("- female after 2016");
+    console.log(femaleAfter2016());
+    
+    // Imagine the date is a birthday. Find all the users who's birthday is today.
+    function todayBirthday() {
+        var currentDate = new Date();
+        var filteredUsers = users.filter(function(user) {
+            if (user.date != null) {
+                var userDate = new Date(user.date * 1000);
+                // *** Problem : getDay() returns the day of the week getDate() returns the day of the month!
+                return userDate.getMonth() == currentDate.getMonth() && userDate.getDay() == currentDate.getDay();
+            }
+            return false;
+        });
+        return filteredUsers;
+    }
+    console.log("- birthday today");
+    console.log(todayBirthday());
+
+    // - Map
+    // Display user Name first and last
+    function userFullNames() {
+        var mappedUsers = users.map(function(user) {
+                return user.first_name + " " + user.last_name
+        });
+        return mappedUsers;
+    }
+    console.log("- First and last");
+    console.log(userFullNames());
+    
+    // Display first name and date formatted: mm/dd/yy
+    function firstNameAndDate() {
+        var currentDate = new Date();
+        var mappedUsers = users.map(function(user) {
+            if (user.date != null) {
+                var userDate = new Date(user.date * 1000);
+                return user.first_name + " " + userDate.getMonth() + "/" + userDate.getDay() + "/" + userDate.getFullYear();
+            }
+            else {
+                return user.first_name + " No Date";
+            }
+        });
+        return mappedUsers;
+    }
+    console.log("- first and date");
+    console.log(firstNameAndDate());
+    
+    // Display male users as: First, Last, gender, age
+    function maleUsers() {
+        var maleUsers = filterUsersByGender("Male");
+        console.log(maleUsers); // *** maleUsers === undefined
+        var mappedUsers = maleUsers.map(function(user) {
+            return user.first_name + " " + user.last_name + " " + user.gender +  " " + user.age
+        });
+        return mappedUsers;
+    }
+    //console.log("- male users");
+    //console.log(maleUsers());
+    
+    
+    // Display users whos birthday is today as: Happy Birthday firstName lastName
+    function birthdayWish() {
+        var currentDate = new Date();
+        var birthdaysToday = todayBirthday();
+        var mappedUsers = birthdaysToday.map(function(user) {
+            if (user.date != null) {
+                var userDate = new Date(user.date * 1000);
+                if (userDate.getMonth() == currentDate.getMonth() && userDate.getDay() == currentDate.getDay()) {
+                    return "Happy Birthday " + user.first_name + " " + user.last_name;
+                }
+            }
+            return false;
+        });
+        return mappedUsers;
+    }
+    console.log("- happy birthday");
+    console.log(birthdayWish());
+    
+    // Reduce
+    // Average the age of all users
+    function avgUserAge() {
+        // Count the number of users whose age is null
+        var nullAgeCount = 0
+        var userAge = users.reduce(function(total, user) {
+            if (user.age == null) {
+                nullAgeCount += 1;
+                return total
+            }
+            else {
+                return total = total + user.age;
+            }
+        }, 0);
+        var avgAge = userAge / (users.length - nullAgeCount);
+        return avgAge;
+    }
+    
+    console.log("- average age");
+    console.log(avgUserAge());
+    
+    // Extra Challenges
+    // Imagine the date is the date joined. Calculate the number of total hours all since all users have joined.
+    // Sort all users by gender
+    // (using map)
+    function genderUsers() {
+
+        var maleUsers = [];
+        var femaleUsers = [];
+
+        var mappedUsers = users.map(function(user) {
+            if(user.gender == "Male") {
+                return maleUsers.push(user)
+            }
+            else if (user.gender == "Female") {
+                return femaleUsers.push(user)
+            }
+            else {
+                return false;
+            }
+        });
+
+        return maleUsers.concat(femaleUsers);
+    }
+
+    //or using sort
+    // function sortByGender() {
+    //     return users.sort(function(a, b) {
+    //         return a.gender - b.gender;
+    //     });
+    // }
+
+
+    // Sort all users by age
+    function sortByAge() {
+        return users.sort(function(a, b) {
+            return a.age - b.age;
+        });
+    }
+
+</script>

@@ -119,22 +119,30 @@
     
     
     
-//    const s = {color:'red', fontSize:18};
-//
-//    const styleTitle = ({color="#000", fontSize=16, fontFamily="Helvetica"}) => {
-//        color // = red
-//        fontSize // = 18
-//        fontFamily // "Helvetica"
-//    };
-//
-//    styleTitle(s);
-//
-//    const Profile = ({first, last, postCount = 0}) => {
-//        first;
-//        last;
-//        postCount;
-//    }
-//    
+    const s = {color:'red', fontSize:18};
+
+    const styleTitle = ({color="#000", fontSize=16, fontFamily="Helvetica"}) => {
+        color // = red
+        fontSize // = 18
+        fontFamily // "Helvetica"
+    };
+
+    styleTitle(s);
+
+    const Profile = (props) => {
+        const first = props.first;
+        const last = props.last;
+        const postCount = props.postCount;
+        
+        
+    }
+
+    const Profile = ({first, last, postCount = 0}) => {
+        first;
+        last;
+        postCount;
+    }
+    
     
     
     
