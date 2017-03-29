@@ -1,0 +1,127 @@
+<script src="data.js"></script>
+<script>
+    // This imports an array of user objects. Take a look at them in the console.
+    console.log(users);
+
+    var today = new Date();
+
+    // console.log(today);
+    // console.log(date);
+    // console.log(today.getFullYear());
+    // console.log(today.getDay());
+    // console.log(today.getDate());
+    // console.log(today.getMonth());
+
+
+    /*
+        The each user object has properties of:
+
+        - age (Number)
+        - date (String UTC timestamp)
+        - first_name (String)
+        - last_name (String)
+        - gender (String: Male or Female)
+        - id (Number)
+    */
+
+    // Challenges
+
+    // - Filter
+    // All users above age 30
+    function over30(){
+        var overThirty = users.filter(function(user){
+            return user.age > 30;
+        });
+        console.log(overThirty.length + " people over 30");
+    }
+    over30();
+    // All male users between 18 and 30
+    function youngMen(){
+        var dudes = users.filter(function(user){
+            return user.gender === "Male" && user.age >= 18 && user.age <= 30;
+        });
+        console.log(dudes.length + " men ages 18-30");
+    }
+    youngMen();
+    // All female users who joined after 2016 (all dates 2017)
+    function newLadies(){
+        var ladies = users.filter(function(user){
+            var date = new Date(user.date * 1000);
+            return user.gender === "Female" && date.getFullYear() > 2016
+        });
+        console.log(ladies.length + " ladies joined after 2016");
+    }
+    newLadies();
+    // Imagine the date is a birthday. Find all the users who's birthday is today.
+    function birthdays(){
+        var birthday = users.filter(function(user){
+            var date = new Date(user.date * 1000);
+            return date.getMonth() === today.getMonth() && date.getDate() === today.getDate()
+        });
+        console.log(birthday.length + " birthday(s) today!");
+        return birthday;
+    }
+    birthdays();
+
+    // - Map
+    // Display user Name first and last
+    function displayName(){
+        var fullName = users.map(function(user){
+            return user.first_name + " " + user.last_name;
+        });
+        console.log(fullName);
+    }
+    displayName();
+    // Display first name and date formatted: mm/dd/yy
+    function displayDateJoined(){
+        var nameDate = users.map(function(user){
+            var date = new Date(user.date * 1000);
+            return user.first_name + " " + date.getMonth() + "/" + date.getDay() + "/" + (date.getFullYear() - 2000);
+        });
+        console.log(nameDate);
+    }
+    displayDateJoined();
+    // Display male users as: First, Last, gender, age
+    function dudes(){
+        var dudeInfo = users.map(function(user){
+            var date = new Date(user.date * 1000);
+            if (user.gender === "Male"){
+                return user.first_name + " " + user.last_name + ", " + user.gender + ", " + user.age;
+            }
+        });
+        console.log(dudeInfo);
+    }
+    dudes();
+    // Display users whos birthday is today as: Happy Birthday firstName lastName
+    function todaysBirthdays(){
+        var todaysBirthdays = birthdays();
+        var birthdayPerson = todaysBirthdays.map(function(user){
+            var date = new Date(user.date * 1000);
+            if (date.getMonth() === today.getMonth() && date.getDate() === today.getDate()){
+                return  " " + user.first_name + " " + user.last_name;
+            }
+        });
+        console.log("Happy Birthday" + birthdayPerson);
+    }
+    todaysBirthdays();
+
+    // Reduce
+    // Average the age of all users
+    function averageAges(){
+        var sumOfAges = 0
+        var count = 0
+        var averageAge = users.reduce(function(acc, user){
+            if (user.age != null) {
+                count += 1
+            }
+            return acc + user.age;
+        }, 0);
+        console.log("Average age: " + averageAge/count);
+    }
+    averageAges();
+
+    // Extra Challenges
+    // Sort all users by gender
+    // Sort all users by age
+
+</script>

@@ -52,7 +52,7 @@ larger apps you should still be able to write a majority of your once for both
 Android and iOS, though there is likely to be situations where you will need to write 
 some amount of code for specific to each platform. 
 
-## Does it work on Mac? 
+### Does it work on Mac? 
 
 Yes. You can build for Android and iOS on a Mac. Sadly you can not build iOS on Windows. 
 
@@ -67,11 +67,11 @@ Follow the Guide here:
 
 https://medium.com/@tewolfe2/5-steps-to-setting-up-your-macbook-for-react-native-7b8b1019eb6d#.49yxn8eoo
 
-## Wait I'm Making native apps with JavaScript?
+### Wait I'm Making native apps with JavaScript?
 
 Yep.
 
-## But, how does that work? 
+### But, how does that work? 
 
 Magic.
 
