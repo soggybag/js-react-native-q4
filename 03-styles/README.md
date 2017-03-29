@@ -131,10 +131,15 @@ elements with Flex Box. The color don't matter.
 
 | What            | Time |        | Activity   |
 |-----------------|------|--------|------------|
-| Intro           |10 min|  10 min| Talk       |
-| Flex box        |10 min|  10 min| We do      |
-|                 |10 min|  10 min| Talk       |
+| Intro           | 5 min|   5 min| Talk       |
+| Flex box        |10 min|  15 min| Talk       |
+| Flex Box Demo   |25 min|  40 min| We Do      |
+| Flex Challenges |60 min| 100 min| Work       |
+| Break           |10 min| 110 min| Stretch    |
+| Wrap up         |10 min| 120 min| We Do      |
 
+
+## Ideas for Simple apps 
 
 Timer 
 Tips
