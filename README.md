@@ -129,14 +129,14 @@ Magic.
         - JavaScript Math, Date *
     - Fri. ES6 *
 - Week 2 
-    - Mon. React Native Intro *
-    - Wed. React Components 
-    - Fri. Flex Box, View, Text, Stylesheet *
-- Week 3
+    - Mon. React Native Intro * React Components 
+    - Wed. Flex Box, View, Text, Stylesheet *
+    - Fri. ScrollView, ListView, other native components
+- Week 3 - Project Easy
     - Mon. Fetch *
-    - Wed. ScrollView, ListView
-    - Fri. Navigation
-- Week 4
+    - Wed. Routes, Navigation
+    - Fri. 
+- Week 4 - Project
     - Mon. Project
     - Wed.
     - Fri.

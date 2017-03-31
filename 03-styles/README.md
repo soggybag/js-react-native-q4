@@ -145,6 +145,7 @@ Timer
 Tips
 Currency
 Notes
+Simon Game
 
 
 

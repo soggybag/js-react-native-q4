@@ -1,0 +1,92 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+const colors = [
+    {"colors":["Pink","Violet","Purple","Purple","Mauv"]},
+    {"colors":["Maroon","Turquoise","Khaki","Maroon","Puce"]},
+    {"colors":["Yellow","Red","Orange","Khaki","Red"]},
+    {"colors":["Puce","Turquoise","Red","Orange","Goldenrod"]},
+    {"colors":["Yellow","Orange","Fuscia","Turquoise","Violet"]},
+    {"colors":["Mauv","Fuscia","Orange","Maroon","Fuscia"]},
+    {"colors":["Orange","Fuscia","Yellow","Purple","Khaki"]},
+    {"colors":["Indigo","Turquoise","Puce","Indigo","Goldenrod"]},
+    {"colors":["Yellow","Red","Puce","Turquoise","Green"]},
+    {"colors":["Fuscia","Blue","Teal","Purple","Yellow"]},
+    {"colors":["Yellow","Red","Violet","Goldenrod","Orange"]},
+    {"colors":["Fuscia","Red","Puce","Fuscia","Crimson"]},
+    {"colors":["Maroon","Mauv","Yellow","Khaki","Mauv"]},
+    {"colors":["Indigo","Puce","Blue","Aquamarine","Fuscia"]},
+    {"colors":["Mauv","Red","Fuscia","Green","Crimson"]},
+    {"colors":["Indigo","Fuscia","Goldenrod","Violet","Crimson"]},
+    {"colors":["Maroon","Mauv","Aquamarine","Teal","Blue"]},
+    {"colors":["Aquamarine","Indigo","Turquoise","Khaki","Red"]},
+    {"colors":["Blue","Orange","Green","Aquamarine","Khaki"]},
+    {"colors":["Pink","Green","Goldenrod","Purple","Indigo"]}
+];
+
+
+    // Challenge 1
+    // Create a master array that contains all of the colors from all of the color arrays.
+    // Duplicates are ok.
+    const masterList = (obj) => {
+        var masterList = obj.reduce((acc, colors) => {
+            return [...acc, ...colors.colors];
+        }, []);
+        // console.log(masterList);
+        return masterList;
+    }
+    
+    console.log("All Colors");
+    console.log(masterList(colors));
+
+    // Challenge 2
+    // Create an array of colors from the colors above that contains only one instance of
+    // each color.
+    const uniqueList = (obj) => {
+        // var masterListArr = masterList(colors);
+        // var uniqueList = [];
+        // for (var i = 0; i < masterListArr.length; i++) {
+        //     if (uniqueList.includes(masterListArr[i])) {
+        //         continue
+        //     }
+        //     uniqueList = [...uniqueList, masterListArr[i]];
+        // }
+        // var uniqueList = masterListArr.filter((color) => {
+        //     //  if (uniqueList.includes(color)) {
+        //     //      return color;
+        //     //  }
+        //     //  return false;
+        //     return uniqueList.includes(color) == false;
+        // });
+        // console.log(uniqueList);
+        // return uniqueList;
+        return [...new Set(masterList(colors))];
+    }
+    
+    console.log("Unique Colors");
+    console.log(uniqueList(colors));
+
+
+    // Challenge 3
+    // From the array above create an object with properties named for each color with a
+    // value equal to the number of times the color appears in all of the arrays above.
+    const colorsDictionary = (obj) => {
+        var masterListArr = masterList(obj);
+        // var colorsDict = masterList.reduce((acc, colors) {
+        //
+        // }, {});
+        var colorsDict = {}
+        for (var i = 0; i < masterListArr.length; i++) {
+            if (colorsDict[masterListArr[i]]) {
+                colorsDict[masterListArr[i]] += 1;
+            }
+            else {
+                colorsDict[masterListArr[i]] = 1;
+            }
+        }
+        return colorsDict;
+    }
+    
+    console.log("Colors convert to object");
+    console.log(colorsDictionary(colors));
+
+</script>

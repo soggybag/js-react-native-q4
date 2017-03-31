@@ -1,0 +1,173 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script type="text/babel">
+    // Imagine you have some styles
+
+    const styles = {
+        color: 'black',
+        backgroundColor: 'white',
+        fontSize: 16,
+        fontFamily: 'Helvetica'
+    };
+
+    const title = {
+        fontSize: 36,
+        color: '#777',
+        fontWeight: 'bold'
+    };
+
+    const subtitle = {
+        color: '#444',
+        fontSize: 18,
+    };
+
+    /*
+        Imagine you need to "inherit" values from your base object: styles
+        and add these properties to title and subtitle. You've kept the
+        properties separate easy of writing the code. At run time you need
+        to combine these objects together to get the style rules that will
+        be applied via JS.
+
+        For example the end result of title should look like:
+
+        {
+            color: 'black',
+            backgroundColor: 'white',
+            fontSize: 36,
+            color: '#777',
+            fontWeight: 'bold',
+            fontFamily: 'Helvetica'
+        }
+
+        Notice that styles and title both contain fontSize, in this case properties in
+        styles should always be over written by another style.
+
+        Challenge: combine the objects above
+        - styles + title
+        - styles + subtitle
+    */
+
+    const combineObj = (obj1, obj2) => {
+        return {...obj1, ...obj2};
+    }
+
+    console.log("combining objects");
+    console.log(combineObj(styles, title));
+    console.log(combineObj(styles, subtitle));
+
+    // ------------------------------------------------------------------------------
+
+    var styles2 = {
+        base: {
+
+            color: 'black',
+            backgroundColor: 'white',
+            fontSize: 16,
+            fontFamily: 'Helvetica'
+        },
+        title: {
+            fontSize: 36,
+            color: '#777',
+            fontWeight: 'bold'
+        },
+        subtitle: {
+            color: '#444',
+            fontSize: 18,
+        }
+    }
+
+    /*
+        This time your job is to combine base properties with each of the other
+        properties of object above. Properties in base should always be overwritten
+        by properties from title and subtitle.
+
+        For example base + title should look like this:
+
+        {
+            backgroundColor: 'white',
+            fontFamily: 'Helvetica',
+            fontSize: 36,
+            color: '#777',
+            fontWeight: 'bold'
+        }
+
+        Challenge:
+        Write a function to do this. Your function should take in two objects and
+        return an object made up of both. If there is a conflict properties from the
+        second object should overwrite the first!
+    */
+        const combineObjects = (args) => {
+            return Object.values(args).reduce((acc, obj) => {
+                return {...acc, ...obj};
+            }, {});
+        }
+
+        // First solution works if you are passing the styles individually
+        console.log(combineObj(styles2.base, styles2.title));
+
+        /*
+        Second solution works as long as you pass the styles as an object that is
+        itself an object whose values are style objects.
+        */
+
+        console.log("combine styles 2");
+        console.log(combineObjects(styles2)); // *** Error! 
+
+
+    /*
+        Use Object destructuring to make individual properties of an object
+        passed as a param. Write a function that takes any of the style objects.
+        It's params should be the named keys of the object. Use sensible
+        default values in case properties are missing!
+
+        In ES5 it might look like this:
+
+        function test(color, fontSize) {
+            // color = 'red' and fontSize = 16
+        }
+
+        test(styles) // Where styles = {color: 'red', fontSize: 16}
+
+        Challenge: Write a function that takes in an object and destructures
+        to named variables. Use Object destructuring. Assign sensible default
+        values for missing properties. You function should use these properties
+
+        - color
+        - fontSize
+        - fontFamily
+
+    props.name = somethign
+    props.id = 111
+    props.age = 33
+
+    ({name, id}) {
+
+    }
+
+    */
+
+    const s = {color:'red', fontSize:18};
+
+    const styleTitle = ({color="#000", fontSize=16, fontFamily="Helvetica"}) => {
+        var color = color // = red
+        var fontSize = fontSize // = 18
+        var fontFamily = fontFamily // "Helvetica"
+    };
+    
+    console.log("");
+    console.log(styleTitle(s));
+
+    const Profile = (props) => {
+        const first = props.first;
+        const last = props.last;
+        const postCount = props.postCount;
+    }
+
+    // const Profile = ({first, last, postCount = 0}) => {
+    //     first;
+    //     last;
+    //     postCount;
+    // }
+
+
+
+</script>
