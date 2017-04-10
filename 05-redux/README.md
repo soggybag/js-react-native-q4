@@ -7,11 +7,54 @@ Redux is described as:
 Redux is an implementation of Flux. Flux is an application architecture pattern that 
 ustilizes a unidirectional data flow.
 
-Redux uses three main parts 
+## The problem
 
+Typically uour apps use two way communication. This creates a complex mashup that 
+invites problems as apps grow in complexity. 
+
+![image-1.png](image-1.png)
+
+## One way data flow
+
+Redux provides a one way data flow. This creates reliable and reproducible results. 
+Redux uses four main parts data always flows through all parts in the same order. 
+
+- action
 - dispatcher
 - store 
 - views (React Components)
+
+![image-2.png](image-2.png)
+
+## Views may generate actions 
+
+When a view issues an action it flows through the system. 
+
+![image-3.png](image-3.png)
+
+## Actions 
+
+An action is an Object with a type. 
+
+![image-4.png](image-4.png)
+
+## Action creators
+
+Action creators are methods that generate actions. While these are not required, this is 
+standard way to work with Redux and makes for best practice. 
+
+![image-5.png](image-5.png)
+
+## Reducers 
+
+Reducers make changes to state. A reducer is a function which takes in state and an 
+action as parameters and returns new state. State is never modifed! Instead, when 
+state changes new state is created. 
+
+![image-6.png](image-6.png)
+
+The store holds your application state. The only way to change state is to send actions 
+to the dispatcher. 
 
 Unlike MVC Redux uses a unidirectional data flow. A View may generate actions. A view 
 will never interact with a data store directly. Instead actions flow into a dispatcher 
@@ -22,14 +65,28 @@ rerender.
 
 App state is immutable. State is never modified, instead it is replaced with new state. 
 
-# Actions 
+# Store 
+
+The store contains a JavaScript object with properties that represent the state of your 
+application. These properties hold the data that your application takes as input and 
+displays in views. 
+
+![image-7.png](image-7.png)
+
+---
+
+Take a closer look at each part of Redux
+
+# Actions
 
 Action initiate changes to state. An action is always a JavaScript Object with a 
 property named `type`. An action object may also have other properties and values that 
 determine how new state is to be created. Common practice is to have another property 
 named `payload` that holds new values. 
 
-Type is always a string that describes the purpose of the action. 
+### Action Type 
+
+An action type is always a **string** that describes the purpose of the action. 
 
 - LOGIN_USER
 - GET_POSTS
@@ -39,19 +96,19 @@ Type is always a string that describes the purpose of the action.
 
 # Action Creators
 
-For organization it is common practice to create functions that generate actions. These
-are called Action Creators. An action creator is a function that returns an action. 
+For best practice use functions that generate actions. These
+are called Action Creators. Action creators always a return an Action. 
 
 A nice feature of Action Creators is that you can keep them all in one place and easily 
 inspect them to see what types of actions your app is using. Since the only way to change
-state is with an action you are easily able to see the internal API of your app in one 
+state is with an action you are easily able to _see the internal API of your app_ in one 
 place!
 
 # Dispatcher
 
-The dispatcher contains a list of reducers that that are responsible for making changes 
+The dispatcher contains a list of Reducers that are responsible for making changes 
 to state. Reducers take in an action and state, and return new state. When an action is 
-sent to the dispatcher it is run through all of the reducers. 
+sent to the dispatcher it is **run through all of the reducers**. 
 
 # Reducers 
 
@@ -85,30 +142,35 @@ reducer to add and remove a timer.
 
 # Example
 
-These examples may seem a little contrived the goal is to show you how Redux works 
+This example may seem a little too simple, the goal is to show you how Redux works 
 illustrating the concepts in clear simple terms. 
 
-The system used has many parts and will be disfficult to absorb the first time through. 
+The system has many parts and will be difficult to absorb the first time through. 
 Don't worry about that. You can refer to your example files and these notes in the 
 future. 
 
-Some parts of the system are reliant on others. To avoid errors messages and allow for 
-testing along the way we will assemble everything in the order below. 
-
 # Counter
 
-What we are building: A simple counter. Our system will have a single value stored 
+What we are building: A simple counter. 
+
+Our system will have a single value stored 
 in our application state that can be incremented and decremented.
 
 The counter will store a single value on state under the key `counter`. 
 
 ## Add dependancies 
 
+Redux is an agnostic JS library and can be used with any JS system. 
+React Redux provides some glue to make Redux work with React. 
+
 - Import Redux and React Redux
     1. `npm install --save redux`
     2. `npm install --save react-redux`
     
 ## Create an Action
+
+Redux requires actions to change state. Our counter needs to send an action to increment
+and decrement the count. 
 
 - Add a folder for actions then create an action creator
     1. Create a folder named `actions`
@@ -133,9 +195,13 @@ export const decrementCounter = () => {
 ```
 
 Besides defining two action creators, we've also defined the types for these actions
-as constants we can use elsewhere. 
+as constants we can use elsewhere, this is best practice to avoid spelling errors and 
+make changes easy. 
 
 ## Add a reducer
+
+Redux uses reducers to handle changes in state. A reducer is passed a _piece_ of state
+associated with a key and an action, and returns a new state for that key. 
 
 - Add a folder for your reducers then create a reducer. 
     1. Create a new folder named `reducers`.
@@ -166,6 +232,8 @@ returned from a reducer sets the new value of state._
 
 ## Combine Reducers 
 
+The reducer you wrote is not a part of Redux until we add it to the system here. 
+
 - All reducers must be combined with Redux.combineReducers(). Keep this in it's 
 own file. 
     1. Make a new file named `index.js` in reducers. 
@@ -181,11 +249,12 @@ export default combineReducers({
 ```
 
 Important! the key `counter` will be the key on the state object that holds the counter
-value. 
+value. Adding more reducers here with other keys would add new keys on state. Imagine
+each key here as representing a new "piece" of state. 
 
 ## Setup the store and provider
 
-The store holds your application state. The provider is glue that makes the store 
+The store holds your application state. The provider is conduit that makes the store 
 available to React components. Best to keep the store high up your component 
 hierarchy since it will be inherited by descendants. 
 
@@ -210,31 +279,32 @@ const App = () => {
 ...
 ```
 
-Here you imported createStore from redux, and used it to to create a new redux store.
-You imported Provider from react-redux and wrapped your App component in the Provider
+Here you imported Provider from react-redux and wrapped your App component in the Provider
 component. This makes the store available to all components in App. Provider requires
 a store. You created the store with createStore() and passed in your combined reducers. 
 
-This concludes the setup of Redux, and should not generate an error.
+**This concludes the setup of Redux, and testing here should not generate an error.**
 
-The state of the app will not change since the counter component is not sending any 
+_The state of the app will **not** change_ since the counter component is not sending any 
 actions or listening to state. 
 
 ## Turning Components into Containers
 
 In React terminology a Container is a Component that works with a Redux Store. These
-steps turn the counter component into a Container that will display the value of counter, 
-and increment and decrement the counter value by issuing actions. 
+steps turn the counter _Component_ into a _Container_ that will display the value of 
+counter, and increment and decrement the counter value by issuing actions. 
 
 - Import dependancies 
-    1. Add the import to the top
+    1. Add the import to the top `counter.js`
     
 ```
 import { connect } from 'react-redux';
 import { incrementCounter, decrementCounter } from '../actions';
 ```
+The first line gets a helper method from react-redux that will connect our component 
+to the redux store. 
 
-This gets both action creators from `actions/index.js`.
+The second line gets both action creators from `actions/index.js`.
 
 - Containers are not exported normally. We will need to perform a little magic on 
 a component to turn it into a container before exporting. 
@@ -258,7 +328,7 @@ export default connect(mapStateToProps)(Counter);
 ```
 
 - Last display the value of counter in the component. 
-    1. The Text that displays the counter and have display `this.props.counter`
+    1. Modify the Text that displays the counter to now display: `this.props.counter`
     
 ```
 <Text style={styles.text}>{this.props.counter}</Text>
@@ -274,7 +344,7 @@ Do this by mapping your dispatch to props. Dispatch is the part of Redux
 that receives actions and holds reducers. 
 
 - The ReactRedux.Connect() method works a lot of magic. Let's use it to 
-connect out action creators to Redux. 
+connect our action creators to Redux. 
     1. Modify the call to connect(), add an object containing your action creators 
     as the second param. 
     
@@ -287,6 +357,12 @@ This is using the ES6 syntax to generate:
 ```
 {incrementCounter:incrementCounter, decrementCounter:decrementCounter}
 ```
+
+These action creators are now available to our component via props!That is: 
+
+`this.props.incrementCounter()`
+
+And this is how you will call on your action creators from your Components!
 
 - The last step will be call the action creators from the buttons. You'll need to 
 do this from the action creators that will show up on props!
@@ -305,7 +381,8 @@ Test your work the counter should now count up and down.
 
 This may seem like a lot of work to create a simple counter. It is, you would not want
 to use Redux to create an app this simple. Keep in mind that larger apps will have 
-more data and that data will come with much organizational overhead.
+more data and that data will come with much organizational overhead. Using Redux managing 
+new state, and making changes to state will follow the same procedures. 
 
 ## Challenges
 
