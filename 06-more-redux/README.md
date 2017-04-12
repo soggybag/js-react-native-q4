@@ -31,6 +31,8 @@ architecture as possible.
 When a component displays state pass state in as a prop, rather than have that 
 component store it's own state. 
 
+![image-1.png](image-1.png)
+
 ## React Native Components 
 
 Here are a few components that will come in handy for this assignment. 
