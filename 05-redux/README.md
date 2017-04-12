@@ -9,7 +9,7 @@ ustilizes a unidirectional data flow.
 
 ## The problem
 
-Typically uour apps use two way communication. This creates a complex mashup that 
+Typically our apps use two way communication. This creates a complex mashup that 
 invites problems as apps grow in complexity. 
 
 ![image-1.png](image-1.png)

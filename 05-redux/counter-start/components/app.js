@@ -5,11 +5,11 @@ import Counter from './counter';
 
 const App = () => {
   return (
-
+    
       <View style={styles.container}>
         <Counter />
       </View>
-    
+   
   );
 }
 

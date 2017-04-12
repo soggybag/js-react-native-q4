@@ -6,9 +6,11 @@ class Counter extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>00</Text>
-        <B styles={styles.button} title="+" onPress={()=>{}} />
-        <B styles={styles.button} title="-" onPress={()=>{}} />
+        <Text style={styles.text}>{this.props.counter}</Text>
+        <B styles={styles.button} title="+" onPress={()=>{this.props.inc()}} />
+        <B styles={styles.button} title="-" onPress={()=>{this.props.dec()}} />
+        <B styles={styles.button} title="+5" onPress={()=>{this.props.incBy(5)}} />
+        <B styles={styles.button} title="Reset" onPress={()=>{this.props.reset()}} />
       </View>
     );
   }
