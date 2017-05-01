@@ -1,9 +1,13 @@
-# ES6
+# ES6 intro
 
 ES6 is the latest iteration of the JavaScript language. 
 
 ES6 provides a different syntax for many features, while functionality remains 
 the same. ES6 introduces a few new ideas. 
+
+Below I have provided a short description of the most common features and new syntax of
+ES6. Read through these and follow the links provided for more info. Be sure to test 
+these new concepts yourself until you feel comfortable. 
 
 # const
 
@@ -22,6 +26,19 @@ x = 99; // Throws an error!
 
 Let defines a block scope. Variables defined with let inside of {} are scoped to 
 that block. 
+
+# String concatenation with ${}
+
+Using the back quote \` and \` to define a string allows JavaScript expressions to be 
+defined inside the ${}. This can save characters and make strings that contain variables
+or other JS expressions easier to read. For example: 
+
+```
+var name = 'Smith';
+var greeting = `Hello Mr ${name} glad to meet you`;
+```
+
+The ${} does NOT work in the ' (single quote) or " (double quote)!
 
 # Fat arrow functions
 

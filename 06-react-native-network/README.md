@@ -1,4 +1,4 @@
-# React Native Weather App
+# React Native Network
 
 This second app will expand on what was covered previously. 
 
@@ -22,6 +22,31 @@ Your app should display current weather data including:
 - Clouds 
 - Percipitation
 - icon (an image representing the weather)
+
+## Fetch 
+
+Fetch is a new JavaScript API for working with network data. Fetch is supported by 
+React native. There are some small differences between the two. Take a few minutes and 
+familiarize yourself with the each: 
+
+**JavaScript - Fetch**
+
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+**Promise** 
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+**React Native Networking**
+
+- https://facebook.github.io/react-native/docs/network.html
+
+## Dark Sky API
+
+Dark Sky provides weather data and a developer API. Create an account with and 
+familiarize yourself with their service. 
+
+- https://darksky.net/dev/
 
 ## Challenges 
 

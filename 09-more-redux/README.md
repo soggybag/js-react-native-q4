@@ -79,8 +79,29 @@ https://facebook.github.io/react-native/docs/textinput.html
 
 ## Challenges
 
-- Style your components 
-- 
+Your goal is to create a an app with React Native that keeps a list of timers. Use 
+Redux and store the timers as application state. 
+
+Imagine this app as a tool to keep a list of timers that track the time spent working 
+at different tasks. You can add tasks to the list, start or stop a timer. Timers keep 
+track of time in seconds, but display the time as HH:MM:SS. 
+
+Your timer app should have these features:
+
+- Add or remove timers. Timers should have these properties: 
+    - Time, holds the length of time a timer has been running. 
+    - Name, a label to identify a timer. 
+    - isRunning, a bool sets whether the timer is running or not. 
+- Show a list of timers with a scroll view. 
+- Starting one timer should stop the other timers. Only one timer should run at once. 
+- Stretch challenges - If you complete the challenge above try these
+    - Use Navigator to create a a detail view in the Timers project.
+        - The detal view should show detail info for a single timer. 
+        - The detail view should have a Back button that returns to the list of timers. 
+        - The detail view should provide a button to start and stop the timer. 
+        - use the detail view to edit a the name and time of a timer. 
+
+
 
 
 

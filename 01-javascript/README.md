@@ -1,9 +1,20 @@
 # JavaScript - Tutorial
 
-A short introduction to JavaScript.
+## A short introduction to JavaScript.
 
-To cover a range of features of the JavaScript Language you will create a simple 
-shopping cart module. The shopping cart will have the following features:
+The goal of this section is to review JavaScript with an eye toward features that are 
+appear often in React projects. In this section you will build the shopping cart 
+described in the previous module. If you are familiar with JavaScript pay close attention 
+to the section on map, filter, and reduce. If you found the shopping cart challenge to 
+be challenging or you did not finish it pay closer attention to this module as to how it 
+solves the shopping cart. 
+
+After the shopping cart example there are some challenges to solve using map, filter, 
+and reduce. 
+
+## Shopping Cart solution 
+
+As a review the shopping cart should fit this description: 
 
 - Keeps a list of items stored in the cart
     - Each item in cart knows the name, price, and quantity
@@ -369,9 +380,6 @@ console.log(myCounter.getCounter());
             - Sort all users by age
 - Date 
     - Use the Date Object to solve the following challenges
-    
-
-
 
 ## Schedule 
 
