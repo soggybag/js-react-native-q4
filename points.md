@@ -2,7 +2,7 @@
 
 core        600000
 Elective    400000
-Total       1000000
+Total      1000000
 
 ## Rubric
 
